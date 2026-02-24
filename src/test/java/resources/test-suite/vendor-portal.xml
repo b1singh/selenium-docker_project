@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE suite SYSTEM "https://testng.org/testng-1.0.dtd">
+<suite name="Suite" parallel="tests" thread-count="6">
+  <test thread-count="5" name="Test" >
+   <parameter name="testDataPath" value="E:\Important_document\UdemyCourse\SDET_Automation_Architect_Master_class\Section_5_Creating_our_automation_framework\DockerAutomationFramework\selenium-docker\src\main\java\test_data_Vendor_Portal\sam.json"></parameter>
+    <classes>
+      <class name="Tests.vendorPortal.VendorPortalTest"/>
+    </classes>
+  </test> <!-- Test -->
+  <test thread-count="5" name="Test1">
+   <parameter name="testDataPath" value="E:\Important_document\UdemyCourse\SDET_Automation_Architect_Master_class\Section_5_Creating_our_automation_framework\DockerAutomationFramework\selenium-docker\src\main\java\test_data_Vendor_Portal\jon.json"></parameter>
+    <classes>
+      <class name="Tests.vendorPortal.VendorPortalTest"/>
+    </classes>
+  </test> <!-- Test -->
+  <test thread-count="5" name="Test3">
+   <parameter name="testDataPath" value="E:\Important_document\UdemyCourse\SDET_Automation_Architect_Master_class\Section_5_Creating_our_automation_framework\DockerAutomationFramework\selenium-docker\src\main\java\test_data_Vendor_Portal\mike.json"></parameter>
+    <classes>
+      <class name="Tests.vendorPortal.VendorPortalTest"/>
+    </classes>
+  </test> <!-- Test -->
+</suite> <!-- Suite -->
