@@ -14,7 +14,8 @@ pipeline{
             }
         }
         stage('push image'){
-			 withCredentials([usernamePassword(
+			 steps {
+                withCredentials([usernamePassword(
                     credentialsId: 'docker-hub-creds',
                     usernameVariable: 'DOCKER_USER',
                     passwordVariable: 'DOCKER_PASS'
@@ -22,10 +23,9 @@ pipeline{
                     bat """
                         echo %DOCKER_PASS% | docker login -u %DOCKER_USER% --password-stdin
                     """
+					 bat 'docker push b1singh/selenium:latest'
                 }
-                bat 'docker push b1singh/selenium:latest'
-            }
-        }
+            } 
     }
     post {
         always {
