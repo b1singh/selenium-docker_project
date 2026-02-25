@@ -18,8 +18,8 @@ pipeline{
                 DOCKER_HUB = credentials('dockerhub-creds')
             }
             steps{
-				bat "echo ${DOCKER_HUB_PSW} | docker login -u ${DOCKER_HUB_USR} --password-stdin"
-                bat "docker push b1singh/selenium:latest"
+				bat 'echo ${DOCKER_HUB_PSW} | docker login -u ${DOCKER_HUB_USR} --password-stdin'
+                bat 'docker push b1singh/selenium:latest'
             }
         }
     }
