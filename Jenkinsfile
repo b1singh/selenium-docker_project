@@ -25,7 +25,8 @@ pipeline{
                     """
 					 bat 'docker push b1singh/selenium:latest'
                 }
-            } 
+            }
+		}
     }
     post {
         always {
