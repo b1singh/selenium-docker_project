@@ -14,14 +14,15 @@ pipeline{
             }
         }
         stage('push image'){
-			environment{
-                DOCKER_HUB = credentials('dockerhub-creds')
-            }
-            steps{
-				bat 'docker login -u %DOCKER_CREDS_USR% -p %DOCKER_CREDS_PSW%'
-				bat '''
-                    echo %DOCKER_CREDS_PSW% | docker login -u %DOCKER_CREDS_USR% --password-stdin
-                '''
+			 withCredentials([usernamePassword(
+                    credentialsId: 'docker-hub-creds',
+                    usernameVariable: 'DOCKER_USER',
+                    passwordVariable: 'DOCKER_PASS'
+                )]) {
+                    bat """
+                        echo %DOCKER_PASS% | docker login -u %DOCKER_USER% --password-stdin
+                    """
+                }
                 bat 'docker push b1singh/selenium:latest'
             }
         }
