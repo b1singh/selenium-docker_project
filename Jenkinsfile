@@ -16,7 +16,7 @@ pipeline{
         stage('push image'){
 			 steps {
                  bat 'docker login -u b1singh -p bakebihari' 
-				 bat 'docker push b1singh/selenium:latest'   
+				 bat 'docker push b1singh/selenium:${env.BUILD_NUMBER}'   
             }
 		}
     }
